@@ -1,0 +1,19 @@
+<% title "Dogs" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Breed</th>
+  </tr>
+  <% for dog in @dogs %>
+    <tr>
+      <td><%= dog.name %></td>
+      <td><%= dog.breed.name %></td>
+      <td><%= link_to "Show", dog %></td>
+      <td><%= link_to "Edit", edit_dog_path(dog) %></td>
+      <td><%= link_to "Destroy", dog, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Dog", new_dog_path %></p>

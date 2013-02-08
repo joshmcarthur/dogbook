@@ -1,0 +1,17 @@
+<% title "Dog" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @dog.name %>
+</p>
+<p>
+  <strong>Breed:</strong>
+  <%= @dog.breed_id %>
+</p>
+
+<p>
+  <%= link_to "Friends", [@dog, :friendships] %> |
+  <%= link_to "Edit", edit_dog_path(@dog) %> |
+  <%= link_to "Destroy", @dog, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", dogs_path %>
+</p>

@@ -1,0 +1,15 @@
+<% title "#{@dog.name}'s Friends" %>
+
+<%= form_for [@dog, Friendship.new] do |f| %>
+	<%= f.collection_select :friend_id, Dog.where('id IS NOT ?', @dog.id), :id, :name %>
+	<%= f.submit 'Add Friend' %>
+<% end %>
+
+<ul>
+	<% @dog.friendships.each do |friendship| %>
+		<li><%= friendship.friend.name %> | <%= link_to 'Remove', [@dog, friendship], :method => :delete %></li>
+	<% end %>
+</ul>
+
+  <%= link_to "Show", @dog %>
+
