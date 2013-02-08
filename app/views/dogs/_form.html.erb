@@ -1,4 +1,4 @@
-<%= form_for @dog do |f| %>
+<%= form_for @dog, :multipart => true do |f| %>
   <%= f.error_messages %>
   <p>
     <%= f.label :name %><br />
@@ -7,6 +7,19 @@
   <p>
     <%= f.label :breed_id %><br />
     <%= f.collection_select :breed_id, Breed.all, :id, :name %>
+  </p>
+  <p>
+    <%= image_tag @dog.profile_image if @dog.profile_image %>
+  </p>
+    <p>
+    <%= f.label :profile_image %><br />
+    <%= f.file_field :profile_image %>
+    <%= f.hidden_field :profile_image_cache %>
+
+    <%= f.label :remove_profile_image do %>
+      <%= f.check_box :remove_profile_image %>
+      Remove profile image?
+    <% end %>
   </p>
   <p><%= f.submit %></p>
 <% end %>

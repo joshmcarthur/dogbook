@@ -2,11 +2,13 @@
 
 <table>
   <tr>
+    <th>Pic</th>
     <th>Name</th>
     <th>Breed</th>
   </tr>
   <% for dog in @dogs %>
     <tr>
+      <td><%= image_tag dog.profile_image.url(:thumb) %></td>
       <td><%= dog.name %></td>
       <td><%= dog.breed.name %></td>
       <td><%= link_to "Show", dog %></td>
